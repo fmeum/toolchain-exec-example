@@ -1,0 +1,6 @@
+load(":defs.bzl", "consuming_rule")
+
+consuming_rule(
+    name = "rule",
+    visibility = ["//visibility:public"],
+)

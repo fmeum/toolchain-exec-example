@@ -1,0 +1,29 @@
+load("//rule:defs.bzl", "lang_toolchain")
+
+toolchain_type(
+    name = "toolchain_type",
+    visibility = ["//visibility:public"],
+)
+
+toolchain(
+    name = "toolchain",
+    toolchain = ":lang_toolchain",
+    toolchain_type = ":toolchain_type",
+)
+
+lang_toolchain(
+    name = "lang_toolchain",
+    exec_dep = "//tool",
+    tags = ["manual"],
+    target_dep = "//tool",
+    visibility = ["//visibility:public"],
+)
+
+genrule(
+    name = "indirect_tool",
+    outs = ["indirect_tool.sh"],
+    cmd = "cp $(execpath //tool) $@",
+    executable = True,
+    tags = ["manual"],
+    tools = ["//tool"],
+)

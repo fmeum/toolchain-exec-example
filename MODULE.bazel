@@ -1,0 +1,15 @@
+bazel_dep(name = "bazel_skylib", version = "1.7.0")
+bazel_dep(name = "platforms", version = "0.0.11")
+
+register_execution_platforms(
+    "//platforms:linux_x86_64",
+    "//platforms:linux_arm64",
+    "//platforms:macos_x86_64",
+    "//platforms:macos_arm64",
+    "//platforms:windows_x86_64",
+    "//platforms:windows_arm64",
+)
+
+register_toolchains(
+    "//toolchain",
+)

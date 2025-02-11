@@ -1,0 +1,11 @@
+[
+    platform(
+        name = os + "_" + cpu,
+        constraint_values = [
+            "@platforms//os:" + os,
+            "@platforms//cpu:" + cpu,
+        ],
+    )
+    for os in ["linux", "macos", "windows"]
+    for cpu in ["x86_64", "arm64"]
+]

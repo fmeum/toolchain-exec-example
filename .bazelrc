@@ -1,0 +1,4 @@
+# Force a common target platform.
+common --platforms=//platforms:macos_arm64
+# Force usage of /bin/sh for ctx.actions.run_shell even when running on Windows.
+common --shell_executable=/bin/sh
